@@ -1,0 +1,23 @@
+[package]
+name = "b_ball_games"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bevy = "0.10.0"
+rand = "0.8.4"
+# 在 `Cargo.toml` 或 `.cargo/config.toml` 中进行配置
+
+# 在调试模式下只启用少量的优化措施：
+[profile.dev]
+opt-level = 1
+
+# 像下面这样对依赖的库启用更高级别的优化（包括 Bevy ），但不会包括我们自己的代码：
+[profile.dev.package."*"]
+opt-level = 3
+
+# 在发布模式下启用更高级别的优化：
+[profile.release]
+opt-level = 3
